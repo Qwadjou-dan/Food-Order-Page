@@ -83,4 +83,40 @@ body {
   }
 }
 
+/* Banner images changes with time */
+.banner {
+  width: 100%;
+  height: 500px;
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: changeBackground 15s infinite;
+  position: relative;
+}
+
+@keyframes changeBackground {
+  0% {
+    background-image: url('../images/imgs/bg-image1.webp');
+  }
+  33% {
+    background-image: url('../images/imgs/bg-image2.jpg');
+  }
+  66% {
+    background-image: url('../images/imgs/bg-image3.jpg');
+  }
+  100% {
+    background-image: url('../images/imgs/bg-image4.webp');
+  }
+}
+
+.banner p {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  font-size: 50px;
+  font-weight: bolder;
+  font-style: italic;
+  color: aliceblue;
+}
+
 
