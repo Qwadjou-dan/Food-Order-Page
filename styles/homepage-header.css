@@ -1,0 +1,86 @@
+
+body {
+  margin-left: 20px;
+  margin-right: 20px;
+} 
+
+.header-layout {
+  width: 100%;
+  height: fit-content;
+  border-bottom: 0.5px black solid;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wel-note, .search-area, .login-area {
+  flex: 1;
+}
+
+.wel-note {
+  font-size: 12px;
+  font-weight: bolder;
+  text-wrap: nowrap;
+}
+
+.wel-note span {
+  font-size: 10px;
+}
+
+.search-area {
+  display: flex;
+  align-items: center;
+}
+
+
+.search-bar {
+  width: 100%; 
+  max-width: 600px; 
+  min-width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box;
+}
+
+.login-area{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.name {
+  font-size: smaller;
+}
+
+.login-area img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;  
+}
+
+/* Rearranging items when screen size is reduced */
+@media (max-width: 768px) {
+  .header-layout {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .wel-note {
+    order: 1;
+  }
+
+  .search-area {
+    order: 3;
+  }
+
+  .login-area {
+    order: 2;
+  }
+}
+
+
