@@ -23,5 +23,3 @@ foodlistHTML +=
 
 document.querySelector('.js-foodlist')
   .innerHTML = foodlistHTML;
-
-ßß
