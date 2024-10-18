@@ -17,6 +17,7 @@ foodlistHTML +=
       <p class="food-name">${food.foodName}</p>
       <p class="food-description">${food.foodInfo}</p>
       <button class="food-price">GHC ${(food.foodPrice).toFixed(2)}</button>
+      <button class="food-order">Order</button>
     </div>
 `
 })

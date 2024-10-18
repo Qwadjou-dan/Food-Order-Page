@@ -68,7 +68,7 @@ export const foodlist = [
   {
     foodId: '009',
     foodName: 'Kenkey with fish',
-    foodInfo: '2 balls of kenkey, red, green and black pepper sauce',
+    foodInfo: '2 balls of kenkey, with fried egg and sardines',
     foodPrice: 55,
     foodImage: 'images/imgs/kenkey-with-pepper-sauce.jpg'
   },
