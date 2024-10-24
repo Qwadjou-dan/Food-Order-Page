@@ -1,5 +1,6 @@
 
 import {foodlist} from '../data/foodlist.js';
+// import {basket} from '../data/foodBasket.js';
 
 
 // Generating HTML for the food list (food cards)
@@ -18,9 +19,9 @@ foodlistHTML +=
       <p class="food-name">${food.foodName}</p>
       <p class="food-description">${food.foodInfo}</p>
       <button class="food-price">GHC ${(food.foodPrice).toFixed(2)}</button>
-      <button class="food-order js-food-order">Order</button>
+      <button class="food-order js-food-order" data-food-id = "${food.foodId}">Order</button>
     </div>
-`
+`;
 })
 
 // DOM for adding the generated HTML to the webpage
@@ -31,20 +32,24 @@ document.querySelector('.js-foodlist')
 
 // Function to update the number of order placed
 
-let orderQuantity = 0;
+// let orderQuantity = 0;
 
-function updateFoodBasket(){
-  orderQuantity += 1;
-  document.querySelector('.js-order-quantity')
-    .innerHTML = orderQuantity;
-}
+// function updateFoodBasket(){
+//   orderQuantity += 1;
+//   document.querySelector('.js-order-quantity')
+//     .innerHTML = orderQuantity;
+// }
 
-document.querySelectorAll('.js-food-order')
- .forEach((button) => {
-   button.addEventListener('click', () => {
-       updateFoodBasket();
-   })
-  })
+
+// //Adding to order page
+
+// document.querySelectorAll('.js-food-order')
+//  .forEach((button) => {
+//    button.addEventListener('click', () => {
+//       const foodId = button.dataset.foodId;
+//       updateFoodBasket();
+//     });
+//   });
 
 
 
