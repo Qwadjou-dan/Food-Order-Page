@@ -1,5 +1,6 @@
 
 import {foodlist} from '../data/foodlist.js';
+import {formatCurrency} from './utils/money.js';
 // import {basket} from '../data/foodBasket.js';
 
 
@@ -18,7 +19,7 @@ foodlistHTML +=
       </div>
       <p class="food-name">${food.foodName}</p>
       <p class="food-description">${food.foodInfo}</p>
-      <button class="food-price">GHC ${(food.foodPrice).toFixed(2)}</button>
+      <button class="food-price">GHC ${formatCurrency(food.foodPrice)}</button>
       <button class="food-order js-food-order" data-food-id = "${food.foodId}">Order</button>
     </div>
 `;

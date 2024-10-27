@@ -1,6 +1,7 @@
 
-import {basket} from '../data/foodBasket.js'
+import {basket} from '../data/foodBasket.js';
 import {foodlist} from '../data/foodlist.js';
+import {formatCurrency} from './utils/money.js';
 
 
 let orderSummaryHTML = '';
@@ -32,7 +33,7 @@ orderSummaryHTML +=
           <p class="food-description">${matchingFood.foodInfo}</p>
           <p class="food-quantity">${food.quantity}</p>
        </div>
-       <button class="food-price">GHC ${(matchingFood.foodPrice).toFixed(2)}</button>
+       <button class="food-price">GHC ${formatCurrency(matchingFood.foodPrice)}</button>
       </div>
   </div>   
   `;
