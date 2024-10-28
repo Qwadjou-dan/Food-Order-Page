@@ -24,7 +24,7 @@ basket.forEach((food) => {
 orderSummaryHTML += 
   `
   <div class="page-layout">
-      <div class="order-list">
+      <div class="order-list js-order-list-${matchingFood.foodId}">
        <div class="food-img">
          <img src="${matchingFood.foodImage}">
        </div>
@@ -51,8 +51,10 @@ document.querySelectorAll('.js-remove-link')
    .forEach((link) => {
     link.addEventListener('click', () => {
       const productId = link.dataset.productId;
-      removeFromBasket(productId)
-      console.log(basket);
+      removeFromBasket(productId);
+      
+      const container = document.querySelector(`.js-order-list-${productId}`);
+      container.remove();
       
     });
    });
