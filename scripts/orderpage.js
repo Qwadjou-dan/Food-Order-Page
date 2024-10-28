@@ -1,5 +1,5 @@
 
-import {basket} from '../data/foodBasket.js';
+import {basket, removeFromBasket} from '../data/foodBasket.js';
 import {foodlist} from '../data/foodlist.js';
 import {formatCurrency} from './utils/money.js';
 
@@ -33,7 +33,10 @@ orderSummaryHTML +=
           <p class="food-description">${matchingFood.foodInfo}</p>
           <p class="food-quantity">${food.quantity}</p>
        </div>
+       <div>
        <button class="food-price">GHC ${formatCurrency(matchingFood.foodPrice)}</button>
+       <p class="js-remove-link remove-link" data-product-id = "${matchingFood.foodId}">Remove</p>
+       </div>
       </div>
   </div>   
   `;
@@ -42,4 +45,15 @@ orderSummaryHTML +=
 
 document.querySelector('.js-orderedFoodlist')
   .innerHTML = orderSummaryHTML;
+
+
+document.querySelectorAll('.js-remove-link')
+   .forEach((link) => {
+    link.addEventListener('click', () => {
+      const productId = link.dataset.productId;
+      removeFromBasket(productId)
+      console.log(basket);
+      
+    });
+   });
 

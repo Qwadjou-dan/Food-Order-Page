@@ -40,3 +40,7 @@ body {
   line-height: 15px;
 }
 
+.remove-link {
+  cursor: pointer;
+}
+
