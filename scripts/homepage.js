@@ -1,4 +1,5 @@
 
+import {addToBasket, basket} from '../data/foodBasket.js';
 import {foodlist} from '../data/foodlist.js';
 import {formatCurrency} from './utils/money.js';
 // import {basket} from '../data/foodBasket.js';
@@ -8,19 +9,19 @@ import {formatCurrency} from './utils/money.js';
 
 let foodlistHTML = '';
 
-foodlist.forEach((food) => {
+foodlist.forEach((foodItem) => {
 
 foodlistHTML +=
 
  `
     <div class="food-card">
       <div class="food-img">
-       <img src="${food.foodImage}">
+       <img src="${foodItem.foodImage}">
       </div>
-      <p class="food-name">${food.foodName}</p>
-      <p class="food-description">${food.foodInfo}</p>
-      <button class="food-price">GHC ${formatCurrency(food.foodPrice)}</button>
-      <button class="food-order js-food-order" data-food-id = "${food.foodId}">Order</button>
+      <p class="food-name">${foodItem.foodName}</p>
+      <p class="food-description">${foodItem.foodInfo}</p>
+      <button class="food-price">GHC ${formatCurrency(foodItem.foodPrice)}</button>
+      <button class="food-order js-food-order" data-food-id = "${foodItem.foodId}">Order</button>
     </div>
 `;
 })
@@ -31,26 +32,27 @@ document.querySelector('.js-foodlist')
   .innerHTML = foodlistHTML;
 
 
-// Function to update the number of order placed
+  function updateBasketQuantity(){
+    let basketQuantity = 0;
 
-// let orderQuantity = 0;
+      basket.forEach((basketItem) => {
+        basketQuantity += basketItem.quantity;
+      })
 
-// function updateFoodBasket(){
-//   orderQuantity += 1;
-//   document.querySelector('.js-order-quantity')
-//     .innerHTML = orderQuantity;
-// }
+      document.querySelector('.js-order-quantity')
+        .innerHTML = basketQuantity;
+  }
 
+ document.querySelectorAll('.js-food-order')
+  .forEach((button) => {
+    
+    button.addEventListener('click', () => {
+      const foodId = button.dataset.foodId;
+      addToBasket(foodId);
+      updateBasketQuantity();
+    })
+  })
 
-// //Adding to order page
-
-// document.querySelectorAll('.js-food-order')
-//  .forEach((button) => {
-//    button.addEventListener('click', () => {
-//       const foodId = button.dataset.foodId;
-//       updateFoodBasket();
-//     });
-//   });
 
 
 
